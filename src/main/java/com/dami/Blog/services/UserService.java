@@ -5,5 +5,6 @@ import com.dami.Blog.models.User;
 public interface UserService {
     User register(User user);
     int sizeOfUsers();
-    void delete(User user);
+    void deleteUserById(int id);
+    User findUser(int id);
 }

@@ -3,7 +3,7 @@ package com.dami.Blog.services;
 import com.dami.Blog.models.User;
 import com.dami.Blog.repositories.UserRepository;
 
-public class UserServiceImpl implements UserService {
+ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     public UserServiceImpl() {
@@ -20,8 +20,17 @@ public class UserServiceImpl implements UserService {
         return userRepository.count();
     }
 
-    @Override
-    public void delete(User user) {
-        userRepository.deleteUser(user);
-    }
-}
+     @Override
+     public void deleteUserById(int id) {
+        userRepository.deleteUser(id);
+
+     }
+
+     @Override
+     public User findUser(int id) {
+        return userRepository.findUser(id);
+
+     }
+
+
+ }

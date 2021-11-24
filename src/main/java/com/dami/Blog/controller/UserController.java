@@ -19,7 +19,21 @@ public class UserController {
     }
 
     @DeleteMapping("/delete")
-    public void deleteUser(@RequestBody User user){
-        userService.delete(user);
+    public String deleteUser(@RequestParam("id") int id) {
+        userService.deleteUserById(id);
+        return "User deleted";
     }
+
+//    @DeleteMapping("/delete/{id}")
+//    public String deleteUser(@PathVariable("id") int id) {
+//        userService.deleteUserById(id);
+//        return "User deleted";
+//    }
+    @GetMapping ("/find")
+    public User findUser(@RequestParam("id") int id){
+        return  userService.findUser(id);
+//        return "User has been added";
+
+    }
+
 }

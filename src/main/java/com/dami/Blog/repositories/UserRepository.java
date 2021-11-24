@@ -6,20 +6,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository {
-    List <User> users = new ArrayList<>();
+    List<User> users = new ArrayList<>();
 
-    public User addUser(User user){
+    public User addUser(User user) {
 
-      users.add(user);
+        users.add(user);
 
-      return user;
+        return user;
     }
-    public int count(){
+
+    public int count() {
+
         return users.size();
     }
 
-    public void deleteUser(User user){
-        users.remove(user);
+    public void deleteUser(int id) {
+        users.removeIf(user -> user.getId() == id);
+
+    }
+    public User findUser(int id){
+        for(User user :users){
+            if(user.getId() == id){
+                return user;
+            }
+        }
+       return null;
     }
 }
 

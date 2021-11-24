@@ -5,12 +5,16 @@ public class User {
     private String lastname;
     private String gender;
     private int age;
+    private  int id;
+    private static int idGenerator;
 
     public User(String firstName, String lastname, String gender, int age) {
         this.firstName = firstName;
         this.lastname = lastname;
         this.gender = gender;
         this.age = age;
+        idGenerator++;
+        id = idGenerator;
     }
 
     public String getFirstName() {
@@ -35,6 +39,10 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getAge() {
